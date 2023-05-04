@@ -40,7 +40,16 @@ function ProductsCarousel({ products }) {
       <swiper-container class="mySwiper" init="false">
         {products.map((product) => (
           <swiper-slide>
-            <Product product={product}></Product>
+            {/* <Product product={product}></Product> */}
+            <div>
+              <h2>{product.title}</h2>
+              <h3>{product.price}</h3>
+              <img src={product.img} style={{ height: "300px" }} />
+              <a target="_blank" href={product.url}>
+                View
+              </a>
+              <h4>{product.provider}</h4>
+            </div>
           </swiper-slide>
         ))}
       </swiper-container>

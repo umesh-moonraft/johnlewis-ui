@@ -6,9 +6,41 @@ import { categories } from "../../static/data";
 import Product from "../../components/Product/Product";
 import ProductsCarousel from "../../components/ProductCarousel/ProductCarousel";
 import Layout from "../../template/Layout";
+import { useState } from "react";
+import Loader from "../../components/Loader";
 
 function ProductsPage() {
   const params = useParams();
+  const [responseProducts, setresponseProducts] = useState([]);
+  const [loader, setLoader] = useState(false);
+
+  const syncCompetitors = () => {
+    setLoader(true);
+
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch(
+      "http://localhost:3000/compare/" +
+        encodeURIComponent(
+          "lg  gsxv91mcae freestanding 60/40 american fridge freezer, matte black"
+        ),
+      // encodeURIComponent(categories[0].products[0].name),
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        setresponseProducts(result);
+        setLoader(false);
+      })
+      .catch((error) => {
+        console.log("error", error);
+        setLoader(false);
+      });
+  };
+
   return (
     <Layout>
       <Link to="/">
@@ -33,7 +65,18 @@ function ProductsPage() {
         </button>
       </Link>
       <Product product={categories[0].products[0]}></Product>
-      <ProductsCarousel products={categories?.[0]?.products}></ProductsCarousel>
+      <button
+        style={{
+          margin: "1rem",
+          background: "rgb(30 41 59)",
+          padding: "1rem 3rem",
+          color: "#fff",
+        }}
+        onClick={syncCompetitors}
+      >
+        {loader == true ? <Loader /> : "Sync"}
+      </button>
+      <ProductsCarousel products={responseProducts}></ProductsCarousel>
     </Layout>
   );
 }
