@@ -8,6 +8,7 @@ import Layout from "../../template/Layout";
 import { useEffect, useState } from "react";
 import Loader from "../../components/Loader";
 import { generateIdByName } from "../../utils";
+import BackButton from "../../components/BackButton";
 
 function ProductsPage() {
   const params = useParams();
@@ -15,6 +16,7 @@ function ProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState({});
 
   const [loader, setLoader] = useState(false);
+  const [isApiCallDone, setIsApiCallDone] = useState(false);
 
   useEffect(() => {
     categories.forEach((item) => {
@@ -33,6 +35,8 @@ function ProductsPage() {
 
   const syncCompetitors = () => {
     setLoader(true);
+
+    setIsApiCallDone(true);
 
     var requestOptions = {
       method: "GET",
@@ -57,7 +61,9 @@ function ProductsPage() {
 
   return (
     <Layout>
+      <BackButton></BackButton>
       <ProductView product={selectedProduct}></ProductView>
+
       <div className="flex justify-center">
         <button
           className="rounded-md"
@@ -72,8 +78,20 @@ function ProductsPage() {
           {loader == true ? <Loader /> : "Sync"}
         </button>
       </div>
-      {responseProducts.length > 0 && (
-        <ProductsCarousel products={responseProducts}></ProductsCarousel>
+      {isApiCallDone &&
+        (responseProducts.length > 0 ? (
+          <ProductsCarousel products={responseProducts}></ProductsCarousel>
+        ) : (
+          <div className="text-center">
+            {loader == true
+              ? "Fetching Products from competitors"
+              : "No Similar Products Found"}
+          </div>
+        ))}
+      {!isApiCallDone && (
+        <div className="text-center">
+          Click Sync Button to get similar products from competitors{" "}
+        </div>
       )}
     </Layout>
   );
