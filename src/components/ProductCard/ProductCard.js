@@ -1,0 +1,37 @@
+import { useNavigate } from "react-router-dom";
+
+import { generateIdByName } from "../../utils";
+
+function Product({ product }) {
+  const navigate = useNavigate();
+
+  const productClickHandler = () => {
+    let id = generateIdByName(product.name);
+    navigate(`/product/${id}`);
+  };
+  return (
+    <a href={product.url}>
+      <div className="flex shadow-lg p-4 bg-slate-800 rounded-lg gap-4">
+        <img
+          src={product.image_url}
+          className="h-72 rounded-md cursor-pointer"
+          alt="product"
+          onClick={productClickHandler}
+        />
+        <div className="text-slate-200 flex-col">
+          <div className="mb-4">{product.name}</div>
+          <div className="text-xl font-bold mb-8">{product.price}</div>
+
+          <button
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            onClick={productClickHandler}
+          >
+            View Product
+          </button>
+        </div>
+      </div>
+    </a>
+  );
+}
+
+export default Product;

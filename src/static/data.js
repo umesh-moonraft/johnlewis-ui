@@ -83,6 +83,58 @@ export const categories = [
         image_url:
           "https://johnlewis.scene7.com/is/image/JohnLewis/005610982?wid=411&hei=548",
       },
+      {
+        name: "Jigsaw Supima Cotton T-Shirt, Eucalyptus",
+        price: "£25.00",
+        image_url:
+          "https://johnlewis.scene7.com/is/image/JohnLewis/005588227?$rsp-pdp-port-640$",
+      },
+    ],
+  },
+  {
+    category_name: "Towels",
+    products: [
+      {
+        name: "John Lewis Egyptian Cotton Face Cloth (Set of 2), White",
+        price: "£10.00",
+        image_url:
+          "https://johnlewis.scene7.com/is/image/JohnLewis/000118314?wid=411&hei=548",
+      },
+      {
+        name: "Dock & Bay Cabana Stripe Quick Dry Beach Towel, Cancun Green",
+        price: "£10.00",
+        image_url:
+          "https://johnlewis.scene7.com/is/image/JohnLewis/240570682?wid=411&hei=548",
+      },
+      {
+        name: "Christy Organic Cotton Twist Yarn Face Cloth, Haze",
+        price: "£10.00",
+        image_url:
+          "https://johnlewis.scene7.com/is/image/JohnLewis/006229313?wid=411&hei=548",
+      },
+    ],
+  },
+  {
+    category_name: "Beauty Foundations",
+    products: [
+      {
+        name: "Estée Lauder Double Wear Stay-in-Place Foundation SPF 10, 2W1.5 Natural Suede",
+        price: "£32.00",
+        image_url:
+          "https://johnlewis.scene7.com/is/image/JohnLewis/237544161?wid=411&hei=548",
+      },
+      {
+        name: "DIOR Forever Skin Glow Foundation, 1N",
+        price: "£10.00",
+        image_url:
+          "https://johnlewis.scene7.com/is/image/JohnLewis/240805436?wid=411&hei=548",
+      },
+      {
+        name: "Giorgio Armani Luminous Silk Foundation, 03",
+        price: "£10.00",
+        image_url:
+          "https://johnlewis.scene7.com/is/image/JohnLewis/231578859?wid=411&hei=548",
+      },
     ],
   },
 ];
