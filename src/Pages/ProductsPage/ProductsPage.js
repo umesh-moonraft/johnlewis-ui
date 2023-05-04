@@ -73,7 +73,7 @@ function ProductsPage() {
         </button>
       </div>
       {responseProducts.length > 0 && (
-        <ProductsCarousel products={response}></ProductsCarousel>
+        <ProductsCarousel products={responseProducts}></ProductsCarousel>
       )}
     </Layout>
   );
