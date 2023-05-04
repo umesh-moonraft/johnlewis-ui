@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function ExternalProduct({ product }) {
   return (
     <div className="flex flex-col shadow-lg p-8 bg-slate-800 rounded-lg gap-4 items-center external-product">
-      <Link to={product.url}>
+      <Link to={product.url} target="_blank">
         <img
           src={product.img}
           className="h-60 rounded-md cursor-pointer"
