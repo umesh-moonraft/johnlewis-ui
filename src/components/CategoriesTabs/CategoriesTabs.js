@@ -34,7 +34,10 @@ export default function CategoriesTabs({ categories }) {
         <Tab.Panels className="mt-2">
           {categories.map((category, idx) => (
             <Tab.Panel key={idx} className={"rounded-xl bg-white"}>
-              <ProductList products={category.products}></ProductList>
+              <ProductList
+                products={category.products}
+                category={category}
+              ></ProductList>
             </Tab.Panel>
           ))}
         </Tab.Panels>

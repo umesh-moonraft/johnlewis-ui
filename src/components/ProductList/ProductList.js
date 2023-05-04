@@ -1,9 +1,9 @@
 import Product from "../Product/Product";
 
-function ProductList({ products }) {
+function ProductList({ products, category }) {
   console.log(products);
   const listItems = products.map((product, index) => (
-    <Product product={product} key={index}></Product>
+    <Product product={product} key={index} category={category}></Product>
   ));
   return <div className="flex flex-col gap-4">{listItems}</div>;
 }

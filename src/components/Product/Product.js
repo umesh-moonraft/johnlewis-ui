@@ -2,12 +2,19 @@ import { useNavigate } from "react-router-dom";
 
 import { generateIdByName } from "../../utils";
 
-function Product({ product }) {
+function Product({ product, category }) {
   const navigate = useNavigate();
 
   const productClickHandler = () => {
-    let id = generateIdByName(product.name);
-    navigate(`/product/${id}`);
+    // let id = generateIdByName(product.name);
+    // navigate(`/product/${id}`);
+
+    let path = "/" + generateIdByName(category);
+
+    navigate({
+      pathname: path,
+      search: `?id=${product.name}`,
+    });
   };
   return (
     <div className="flex shadow-lg p-4 bg-slate-800 rounded-lg gap-4">

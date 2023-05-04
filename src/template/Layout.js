@@ -5,8 +5,8 @@ function Layout({ children }) {
   return (
     <div className="page-container">
       <Header />
-      <div class="page-content">{children}</div>
-      <Footer></Footer>
+      <div className="page-content">{children}</div>
+      <Footer />
     </div>
   );
 }
