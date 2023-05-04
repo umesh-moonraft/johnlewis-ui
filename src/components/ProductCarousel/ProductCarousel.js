@@ -4,6 +4,7 @@ import { register } from "swiper/element/bundle";
 import Product from "../Product/Product";
 
 import "./ProductsCarousel.css";
+import ExternalProduct from "../ExternalProduct/ExternalProduct";
 
 // register Swiper custom elements
 register();
@@ -12,10 +13,10 @@ function ProductsCarousel({ products }) {
   useEffect(() => {
     const swiperEl = document.querySelector("swiper-container");
     Object.assign(swiperEl, {
-      slidesPerView: 1,
+      slidesPerView: 3,
       spaceBetween: 10,
       // pagination: {
-      //   clickable: true,
+      //   clickable: true
       // },
       navigation: true,
       breakpoints: {
@@ -36,12 +37,12 @@ function ProductsCarousel({ products }) {
     swiperEl.initialize();
   }, []);
   return (
-    <div className="products-carousel-container">
+    <div className="products-carousel-container my-8">
       <swiper-container class="mySwiper" init="false">
         {products.map((product) => (
           <swiper-slide>
-            {/* <Product product={product}></Product> */}
-            <div>
+            <ExternalProduct product={product}></ExternalProduct>
+            {/* <div>
               <h2>{product.title}</h2>
               <h3>{product.price}</h3>
               <img src={product.img} style={{ height: "300px" }} />
@@ -49,7 +50,7 @@ function ProductsCarousel({ products }) {
                 View
               </a>
               <h4>{product.provider}</h4>
-            </div>
+            </div> */}
           </swiper-slide>
         ))}
       </swiper-container>

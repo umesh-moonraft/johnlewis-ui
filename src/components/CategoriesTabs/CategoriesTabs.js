@@ -14,9 +14,9 @@ export default function CategoriesTabs({ categories }) {
     <div className="w-full px-2 mx-8 py-16 sm:px-0">
       <Tab.Group onChange={tabChangeHandler}>
         <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
-          {categories.map((category) => (
+          {categories.map((item) => (
             <Tab
-              key={category.category_name}
+              key={item.category}
               className={({ selected }) =>
                 classNames(
                   "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700",
@@ -27,16 +27,16 @@ export default function CategoriesTabs({ categories }) {
                 )
               }
             >
-              {category.category_name}
+              {item.category}
             </Tab>
           ))}
         </Tab.List>
         <Tab.Panels className="mt-2">
-          {categories.map((category, idx) => (
+          {categories.map((item, idx) => (
             <Tab.Panel key={idx} className={"rounded-xl bg-white"}>
               <ProductList
-                products={category.products}
-                category={category}
+                products={item.products}
+                category={item.category}
               ></ProductList>
             </Tab.Panel>
           ))}

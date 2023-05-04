@@ -1,12 +1,7 @@
-.products-carousel-container {
-  height: 200px;
-  max-width: 1200px;
-  margin: auto;
-}
 
 swiper-container {
   width: 100%;
-  height: 500px;
+  /* height: 500px; */
 }
 
 swiper-slide {
