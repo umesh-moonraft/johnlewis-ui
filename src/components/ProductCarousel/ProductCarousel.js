@@ -21,15 +21,15 @@ function ProductsCarousel({ products }) {
       navigation: true,
       breakpoints: {
         640: {
-          slidesPerView: 2,
+          slidesPerView: 1,
           spaceBetween: 20,
         },
         768: {
-          slidesPerView: 4,
+          slidesPerView: 1,
           spaceBetween: 40,
         },
         1024: {
-          slidesPerView: 5,
+          slidesPerView: 1,
           spaceBetween: 50,
         },
       },
@@ -39,8 +39,8 @@ function ProductsCarousel({ products }) {
   return (
     <div className="products-carousel-container my-8">
       <swiper-container class="mySwiper" init="false">
-        {products.map((product) => (
-          <swiper-slide>
+        {products.map((product,index) => (
+          <swiper-slide key={index}>
             <ExternalProduct product={product}></ExternalProduct>
             {/* <div>
               <h2>{product.title}</h2>
