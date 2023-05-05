@@ -46,7 +46,7 @@ function SearchPage() {
         <SearchBox searchHandler={searchHandler}></SearchBox>
       </div>
 
-      {!isApiCallDone &&
+      {isApiCallDone &&
         (responseProducts.length > 0 ? (
           <ProductsCarousel products={responseProducts}></ProductsCarousel>
         ) : (
