@@ -5,10 +5,8 @@ function Layout({ children }) {
   return (
     <div className="page-container">
       <Header />
-      <div className="page-content">
-        {children}
-      </div>
-      <Footer />
+      <div className="page-content px-4 py-16 md:px-8">{children}</div>
+      {/* <Footer /> */}
     </div>
   );
 }

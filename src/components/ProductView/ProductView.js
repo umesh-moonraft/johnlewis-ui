@@ -8,7 +8,7 @@ export default function ProductView({ product }) {
       />
       <div className="text-slate-200 flex-col">
         <div className="mb-4">{product.title}</div>
-        <div className="text-xl font-bold">{product.price}</div>
+        <div className="text-center text-xl font-bold">{product.price}</div>
       </div>
     </div>
   );

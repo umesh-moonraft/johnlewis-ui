@@ -1,7 +1,6 @@
 import Product from "../Product/Product";
 
 function ProductList({ products, category }) {
-  console.log(products);
   const listItems = products.map((product, index) => (
     <Product product={product} key={index} category={category}></Product>
   ));
